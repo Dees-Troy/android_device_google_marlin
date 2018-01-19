@@ -19,7 +19,7 @@
 # Everything in this directory will become public
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
-    LOCAL_KERNEL := device/google/marlin-kernel/Image.lz4-dtb
+    LOCAL_KERNEL := device/google/marlin-kernel/Image.gz-dtb
 else
 LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
@@ -30,6 +30,35 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
 
 DEVICE_PACKAGE_OVERLAYS += device/google/marlin/overlay
+
+PRODUCT_COPY_FILES += \
+    device/google/marlin/recovery/root/etc/twrp.fstab:recovery/root/etc/twrp.fstab \
+    device/google/marlin/recovery/root/sbin/bootctrl.msm8996.so:recovery/root/sbin/bootctrl.msm8996.so \
+    device/google/marlin/recovery/root/sbin/libdiag.so:recovery/root/sbin/libdiag.so \
+    device/google/marlin/recovery/root/sbin/libdrmfs.so:recovery/root/sbin/libdrmfs.so \
+    device/google/marlin/recovery/root/sbin/libdrmtime.so:recovery/root/sbin/libdrmtime.so \
+    device/google/marlin/recovery/root/sbin/libQSEEComAPI.so:recovery/root/sbin/libQSEEComAPI.so \
+    device/google/marlin/recovery/root/sbin/librpmb.so:recovery/root/sbin/librpmb.so \
+    device/google/marlin/recovery/root/sbin/libssd.so:recovery/root/sbin/libssd.so \
+    device/google/marlin/recovery/root/sbin/qseecomd:recovery/root/sbin/qseecomd \
+    device/google/marlin/recovery/root/sbin/android.hardware.keymaster@3.0-service:recovery/root/sbin/android.hardware.keymaster@3.0-service \
+    device/google/marlin/recovery/root/vendor/compatibility_matrix.xml:recovery/root/vendor/compatibility_matrix.xml \
+    device/google/marlin/recovery/root/vendor/manifest.xml:recovery/root/vendor/manifest.xml \
+    device/google/marlin/recovery/root/vendor/lib64/hw/android.hardware.boot@1.0-impl.so:recovery/root/vendor/lib64/hw/android.hardware.boot@1.0-impl.so \
+    device/google/marlin/recovery/root/vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl.so:recovery/root/vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl.so \
+    device/google/marlin/recovery/root/vendor/lib64/hw/android.hardware.keymaster@3.0-impl.so:recovery/root/vendor/lib64/hw/android.hardware.keymaster@3.0-impl.so \
+    device/google/marlin/recovery/root/vendor/lib64/hw/gatekeeper.msm8996.so:recovery/root/vendor/lib64/hw/gatekeeper.msm8996.so \
+    device/google/marlin/recovery/root/vendor/lib64/hw/keystore.msm8996.so:recovery/root/vendor/lib64/hw/keystore.msm8996.so \
+    device/google/marlin/recovery/root/vendor/lib64/hw/bootctrl.msm8996.so:recovery/root/vendor/lib64/hw/bootctrl.msm8996.so \
+    device/google/marlin/recovery/root/vendor/lib64/libgptutils.so:recovery/root/vendor/lib64/libgptutils.so \
+    device/google/marlin/recovery/root/init.recovery.usb.rc:root/init.recovery.usb.rc \
+    device/google/marlin/recovery/root/nonplat_hwservice_contexts:recovery/root/nonplat_hwservice_contexts \
+    device/google/marlin/recovery/root/plat_hwservice_contexts:recovery/root/plat_hwservice_contexts \
+    device/google/marlin/recovery/root/nonplat_service_contexts:recovery/root/nonplat_service_contexts \
+    device/google/marlin/recovery/root/plat_service_contexts:recovery/root/plat_service_contexts \
+    device/google/marlin/recovery/root/sbin/android.hardware.gatekeeper@1.0-service:recovery/root/sbin/android.hardware.gatekeeper@1.0-service \
+    device/google/marlin/recovery/root/sbin/prepdecrypt.sh:recovery/root/sbin/prepdecrypt.sh \
+    device/google/marlin/recovery/root/sbin/android.hardware.boot@1.0-service:recovery/root/sbin/android.hardware.boot@1.0-service
 
 PRODUCT_ENFORCE_RRO_TARGETS := \
     framework-res
